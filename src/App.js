@@ -1,30 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import ItemList from './components/ItemList';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  const [colored, setColored] = useState(false);
-  const [count, setCount] = useState(1);
+import { useRoutes } from './routes';
+import Nav from './components/Nav';
 
-  const styles = { color: colored ? 'darkred' : 'black' };
-
-  // const generateItems = (num) => {
-  //   return new Array(count).fill('').map((_, i) => `Element ${i + num}`);
-  // };
-  // useCallback vs. useMemo, we use to cache FUNCTION, but NOT the RESULT of function call:
-  const generateItems = useCallback((num = 0) => {
-    return new Array(count).fill('').map((_, i) => `Element ${i + num}`);
-  }, [count]);
+export default function App() {
+  const routes = useRoutes();
 
   return (
-    <>
-      <h1>Countable feature: <span style={styles}>{count}</span></h1>
-      <button className="btn btn-success mr-2" onClick={() => setCount((prev) => prev + 1)}>+1</button>
-      <button className="btn btn-danger mr-2" onClick={() => setCount((prev) => prev - 1)}>-1</button>
-      <button className="btn btn-warning mr-2" onClick={() => setColored((prev) => !prev)}>Change color</button>
-
-      <ItemList getItems={generateItems} />
-    </>
+    <BrowserRouter>
+      <div className="container">
+        <Nav />
+        {routes}
+      </div>
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -6,7 +6,7 @@ const makeAppSlower = (num) => {
   return num;
 }
 
-function App() {
+function UseMemoPage() {
   const [number, setNumber] = useState(23);
   const [colored, setColored] = useState(false);
 
@@ -24,12 +24,26 @@ function App() {
 
   return (
     <>
-      <h1>Countable feature: <span style={styles}>{calculated}</span></h1>
-      <button className="btn btn-success" onClick={() => setNumber((prev) => prev + 1)}>+1</button>
-      <button className="btn btn-danger" onClick={() => setNumber((prev) => prev - 1)}>-1</button>
-      <button className="btn btn-warning" onClick={() => setColored((prev) => !prev)}>Change color</button>
+      <div className="text-center mt-2 mb-5">
+        <h3>useMemo</h3>
+      </div>
+      <div>
+        <div>
+          <h4>Why?</h4>
+          <div></div>
+        </div>
+        <div>
+          <h4>Application:</h4>
+          <div>
+            <h5>Countable feature: <span style={styles}>{calculated}</span></h5>
+            <button className="btn mr-2 btn-success" onClick={() => setNumber((prev) => prev + 1)}>+1</button>
+            <button className="btn mr-2 btn-danger" onClick={() => setNumber((prev) => prev - 1)}>-1</button>
+            <button className="btn mr-2 btn-warning" onClick={() => setColored((prev) => !prev)}>Change color</button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-export default App;
+export default UseMemoPage;

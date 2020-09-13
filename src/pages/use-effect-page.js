@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function App() {
+function UseEffectPage() {
   const [type, setType] = useState('users');
   const [data, setData] = useState([]);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -41,25 +41,37 @@ function App() {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="text-center mt-2 mb-5">
+        <h3>useEffect</h3>
+      </div>
+      <div>
         <div>
-          <h2>Source: {type}</h2>
-
-          <button onClick={() => setType('users')}>Users</button>
-          <button onClick={() => setType('todos')}>Todos</button>
-          <button onClick={() => setType('posts')}>Posts</button>
-
-          <div>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </div>
+          <h4>Why?</h4>
+          <div></div>
         </div>
         <div>
-          <h2>Cursor position:</h2>
-          <pre>{JSON.stringify(pos, null, 2)}</pre>
+          <h4>Application:</h4>
+          <div className="d-flex">
+            <div className="w-75">
+              <h5>Source: {type}</h5>
+
+              <button className="mr-2" onClick={() => setType('users')}>Users</button>
+              <button className="mr-2" onClick={() => setType('todos')}>Todos</button>
+              <button className="mr-2" onClick={() => setType('posts')}>Posts</button>
+
+              <div>
+                <pre>{JSON.stringify(data, null, 2)}</pre>
+              </div>
+            </div>
+            <div>
+              <h5>Cursor position:</h5>
+              <pre>{JSON.stringify(pos, null, 2)}</pre>
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 }
 
-export default App;
+export default UseEffectPage;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-function App() {
+function UseRefPage() {
   const [value, setValue] = useState("initial string");
 
   // 1. if we want to save value between renders without render initializing, we use useRef: 
@@ -30,13 +30,27 @@ function App() {
 
   return (
     <>
-      <h2>Render quantity: {renderCount.current}</h2>
-      <h3>Previous state: {prevValue.current}</h3>
-      <button onClick={setFocus}>Set focus on input element</button>
-      <p>Type inside of input to rerender page</p>
-      <input ref={inputRef} type="text" onChange={(e) => setValue(e.target.value)} value={value} />
+      <div className="text-center mt-2 mb-5">
+        <h3>useRef</h3>
+      </div>
+      <div>
+        <div>
+          <h4>Why?</h4>
+          <div></div>
+        </div>
+        <div>
+          <h4>Application:</h4>
+          <div>
+            <h5>Render quantity: {renderCount.current}</h5>
+            <h5>Previous state: {prevValue.current}</h5>
+            <button onClick={setFocus}>Set focus on input element</button>
+            <p>Type inside of input to rerender page</p>
+            <input ref={inputRef} type="text" onChange={(e) => setValue(e.target.value)} value={value} />
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-export default App;
+export default UseRefPage;
